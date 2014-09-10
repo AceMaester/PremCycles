@@ -12,18 +12,28 @@ public class Match {
 		private String winner;
 		
 		public Match(Element html){
-			score = new int[2]; // index 0=winner score index 1=loser score
+			score = new int[2]; // index 0=home score index 1=away score
 			Elements aTags = html.getElementsByTag("a");
 			String info = aTags.html();
 			String[] splitInfo = info.split("\n");
-			//System.out.println(splitInfo[1]);
 			this.homeTeam = splitInfo[0];
 			this.awayTeam = splitInfo[2];
+			String scoreString = splitInfo[1];
+			score[0] = Integer.parseInt(scoreString.split(" ")[0]);
+			score[1] = Integer.parseInt(scoreString.split(" ")[2]);
+
 			
 			
+		}
 		
-			
-			
+		public void findWinner(){
+			if (score[0] > score[1]){
+				this.winner = this.homeTeam;
+			}else if(score[1] > score[0]){
+				this.winner = this.awayTeam;
+			}else{
+				this.winner = "draw"; //case where scores are equal so there is no technical winner (assuming no team is called 'draw' god forbid)
+			}
 		}
 
 		public String getHomeTeam() {

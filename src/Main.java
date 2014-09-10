@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
@@ -28,13 +29,19 @@ public class Main {
 			Element test = games.get(0);
 			Match m = new Match(test);
 			
+			ArrayList<Match> matches = new ArrayList<Match>();
+			
+			for (Element e : games){
+				m = new Match(e);
+				matches.add(m);
+				
+			}
 			
 			
-			Elements home = test.getElementsByTag("a");
-			//System.out.println(home.html());
-			
-			//Elements home = test.getElementsByClass("clubs rHome");
-			//System.out.println("home: " + home.get(0));
+			for (Match t : matches){
+				System.out.println(t);
+			}
+
 			
 			
 
