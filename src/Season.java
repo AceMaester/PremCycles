@@ -38,9 +38,13 @@ public class Season<Team> {
 	     * This implementation allows the creation of multi-edges and self-loops.
 	     */
 	    public void add (Team winner, Team loser) {
+	    	
+	    	if(winner.toString().equals("draw")){
+	    		return;
+	    	}
+	    	
 	        this.add(winner); this.add(loser);
 	        neighbors.get(winner).add(loser);
-	        System.out.println("Hi: " + neighbors);
 	    }
 	   
 	    

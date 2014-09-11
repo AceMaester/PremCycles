@@ -39,16 +39,20 @@ public class Main {
 			
 			
 			for (Match t : matches){
-				System.out.println(t);
+				//System.out.println(t.getLoser());
+				String winTeam = t.getWinner();
+				String loseTeam = t.getLoser();
+				if (winTeam.equals("draw")){
+					continue;
+				}
+				Team winner = teams.get(winTeam);
+				Team loser = teams.get(loseTeam);
+				nineTen.add(winner, loser);
+				
 			}
+			System.out.println(nineTen);
+			
 
-			
-			
-
-			
-			
-			
-			
 		} catch (IOException e) {
 			
 			e.printStackTrace();
