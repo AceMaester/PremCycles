@@ -25,7 +25,7 @@ public class Main {
 			
 			
 			Hashtable<String, Team> teams = getTeams(doc);
-			Season<Team> nineTen = new Season<Team>();
+			Season nineTen = new Season();
 			Element test = games.get(0);
 			Match m = new Match(test);
 			
@@ -49,8 +49,12 @@ public class Main {
 				Team loser = teams.get(loseTeam);
 				nineTen.add(winner, loser);
 				
+				
 			}
 			System.out.println(nineTen);
+			//nineTen.bfs(loser);
+			//nineTen.bfs(teams.get("Hull"));
+			nineTen.getShortestPath(teams.get("Man Utd"), teams.get("Hull"));
 			
 
 		} catch (IOException e) {
