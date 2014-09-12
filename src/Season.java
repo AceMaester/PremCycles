@@ -70,7 +70,7 @@ public class Season {
 	    	
 	    	Queue<Team> q=new LinkedList<Team>();
 	    	q.add(startTeam);
-	    	System.out.println(startTeam);
+	    	//System.out.println(startTeam);
 	    	bfsOrder.add(startTeam);
 	    	startTeam.setVisited(true);
 	    	
@@ -81,14 +81,14 @@ public class Season {
 	    		while((child=getUnvisitedChildTeam(n))!=null)
 	    		{
 	    			child.setVisited(true);
-	    			System.out.println(child);
+	    			//System.out.println(child); For printing out BFS ordering
 	    			bfsOrder.add(child);
 	    			child.setPrevious(n);
 	    			q.add(child);
 	    		}
 	    	}
 	
-	    	System.out.println("--------------------------------------------");
+	    	//System.out.println("--------------------------------------------");
 	    	
 	    	return bfsOrder;
 	    }
